@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.RecyclerView
+import com.example.s205360lykkehjulet.Data.DataCategories
+import com.example.s205360lykkehjulet.adapter.ItemAdapter
 import com.example.s205360lykkehjulet.databinding.ActivityMainBinding
+import javax.sql.DataSource
 
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +16,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.fragment_start)
+
+        //Dette skal tages i brug. men appen virker ikke med denne lige nu.
+        //setContentView(binding.root)
+
+
+        val myDataset = DataCategories().loadButtonContext()
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = ItemAdapter(this, myDataset)
+        recyclerView.setHasFixedSize(true)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
