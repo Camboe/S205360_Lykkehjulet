@@ -2,6 +2,7 @@ package com.example.s205360lykkehjulet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.RecyclerView
@@ -32,5 +33,6 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         NavigationUI.setupActionBarWithNavController(this, navController)
+
     }
 }
