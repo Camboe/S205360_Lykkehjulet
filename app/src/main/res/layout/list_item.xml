@@ -4,34 +4,37 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp" >
 
-<TextView
-    android:id="@+id/Categorie_title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?attr/textAppearanceHeadline5"
-    android:padding="16dp"
-    android:layout_gravity="center"
-    android:textSize="25dp" />
+    <TextView
+        android:id="@+id/categorieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/Categorie_image"
+        android:id="@+id/categorieImage"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:importantForAccessibility="no"
         android:scaleType="centerInside" />
 
     <Button
-        android:id="@+id/Categorie_button"
+        android:id="@+id/categorieButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Vælg"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        android:backgroundTint="@color/orange"
+        />
 
 </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
