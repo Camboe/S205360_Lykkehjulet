@@ -17,22 +17,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.fragment_start)
-
-        //Dette skal tages i brug. men appen virker ikke med denne lige nu.
-        //setContentView(binding.root)
+        setContentView(binding.root)
 
 
-        val myDataset = DataCategories().loadButtonContext()
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
-        recyclerView.setHasFixedSize(true)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         NavigationUI.setupActionBarWithNavController(this, navController)
+
 
     }
 }
