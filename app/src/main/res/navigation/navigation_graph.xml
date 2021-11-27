@@ -9,10 +9,19 @@
         android:id="@+id/startFrag"
         android:name="com.example.s205360lykkehjulet.startFrag"
         android:label="fragment_start"
-        tools:layout="@layout/fragment_start" />
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFrag_to_gameFrag"
+            app:destination="@id/gameFrag" />
+    </fragment>
     <fragment
         android:id="@+id/gameFrag"
-        android:name="com.example.s205360lykkehjulet.GameFrag"
+        android:name="com.example.s205360lykkehjulet.game.GameFrag"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/roules"
+        android:name="com.example.s205360lykkehjulet.Roules"
+        android:label="fragment_roules"
+        tools:layout="@layout/fragment_roules" />
 </navigation>
