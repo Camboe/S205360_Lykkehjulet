@@ -8,26 +8,27 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s205360lykkehjulet.R
 import com.example.s205360lykkehjulet.model.CategoriesButton
 
 
-class ItemAdapter (private val context: Context, private val dataset: List<CategoriesButton>)
-    : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>()
-{
+class ItemAdapter(private val context: Context, private val dataset: List<CategoriesButton>) :
+    RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view){
+    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.categorieTitle)
         val imageView: ImageView = view.findViewById(R.id.categorieImage)
         val button: Button = view.findViewById(R.id.categorieButton)
-
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         //Create a new view
-        val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+        val adapterLayout =
+            LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         return ItemViewHolder(adapterLayout)
     }
 
@@ -35,8 +36,12 @@ class ItemAdapter (private val context: Context, private val dataset: List<Categ
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
         holder.imageView.setImageResource(item.imageResourceId)
+
         holder.button.setOnClickListener {
-            Toast.makeText(context, "test" + context.resources.getString(item.stringResourceId), Toast.LENGTH_SHORT).show()
+            val bundle = bundleOf("Title" to item.stringResourceId)
+            Navigation.findNavController(it).navigate(R.id.action_startFrag_to_gameFrag, bundle)
+            //Toast.makeText(context, "test" + context.resources.getString(item.stringResourceId), Toast.LENGTH_SHORT).show()
+
 
         }
     }
