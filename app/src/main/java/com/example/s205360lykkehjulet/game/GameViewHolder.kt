@@ -19,7 +19,6 @@ class GameViewHolder : ViewModel() {
     //lateinit benyttes til at variablen først bliver defineret senere
 
     lateinit var currentWordList: MutableList<String>
-    lateinit var input: String
 
 
     fun newWord(): MutableList<String> {
@@ -36,14 +35,13 @@ class GameViewHolder : ViewModel() {
 
     lateinit var quessedCorrectLetters: MutableList<String>
 
-    fun checkGuess() {
-
+    fun checkGuess(letter: String) {
         //Der tilføjes "" da mellemrum ikke kan gættes
         if ((" ") in currentWordList) quessedCorrectLetters.add(" ")
 
         //Tjek om det er det rigtige bogstav
-        if (input in currentWordList) {
-            quessedCorrectLetters.add(input)
+        if (letter in currentWordList) {
+            quessedCorrectLetters.add(letter)
         }
     }
 

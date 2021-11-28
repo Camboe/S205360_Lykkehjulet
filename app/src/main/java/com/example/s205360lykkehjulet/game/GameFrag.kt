@@ -45,13 +45,14 @@ class GameFrag : Fragment() {
         return binding.root
     }
 
+        //Click on buttons
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.kobVokal.setOnClickListener {
 
         }
         binding.spinArrow.setOnClickListener{ spinWheel() }
-        binding.getOrd.setOnClickListener{}
+        binding.getOrd.setOnClickListener{ }
 
     }
 
@@ -67,6 +68,13 @@ class GameFrag : Fragment() {
     fun buyVocal () {
 
     }
+    //private fun submitLetters() {
+        //val letter = binding.textFieldWord.text.toString()
+        //if (viewModel.checkGuess(letter)) {
+
+
+        //}
+    //}
 
 
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/startFrag">
+    app:startDestination="@id/roules">
 
     <fragment
         android:id="@+id/startFrag"
@@ -23,5 +23,9 @@
         android:id="@+id/roules"
         android:name="com.example.s205360lykkehjulet.Roules"
         android:label="fragment_roules"
-        tools:layout="@layout/fragment_roules" />
+        tools:layout="@layout/fragment_roules" >
+        <action
+            android:id="@+id/action_roules_to_startFrag"
+            app:destination="@id/startFrag" />
+    </fragment>
 </navigation>
