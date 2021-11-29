@@ -15,67 +15,87 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="50dp"
             android:gravity="center"
-            android:text="GÆT ORDET"
+            android:text="@string/textView"
             android:textSize="25dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="300dp"
-            android:text="Point: 0"
+            android:text="@string/point"
             android:textAllCaps="true"
+            android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Point: 0" />
 
+        <TextView
+            android:id="@+id/life"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/life"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/point"
+            app:layout_constraintBottom_toBottomOf="@+id/point"
+            android:layout_marginEnd="20dp"
+            tools:text="LIV: 5" />
+
+        <TextView
+            android:id="@+id/wheelField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldWord"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            >
+
+        </TextView>
+
 
         <ImageView
             android:id="@+id/lykkehjul"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="168dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="110dp"
             android:adjustViewBounds="true"
             android:src="@drawable/lykkehjul1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.555"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.813"
+            app:layout_constraintTop_toBottomOf="@+id/wheelField"
             tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/spinArrow"
-            android:layout_width="80dp"
-            android:layout_height="95dp"
-            android:layout_marginBottom="244dp"
-            android:adjustViewBounds="true"
-            android:onClick="SpinWheel"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="268dp"
             android:src="@drawable/spinarrow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
 
@@ -85,7 +105,7 @@
             android:layout_height="70dp"
             android:layout_marginStart="45dp"
             android:backgroundTint="@color/orange"
-            android:text="Køb Vokal"
+            android:text="@string/kobVokal"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +116,7 @@
             android:layout_width="140dp"
             android:layout_height="70dp"
             android:layout_marginEnd="45dp"
-            android:text="Gæt ord"
+            android:text="@string/getOrd"
             android:textSize="20dp"
             android:textStyle="bold"
             android:backgroundTint="@color/orange"
@@ -110,12 +130,16 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="68dp"
             android:layout_marginEnd="55dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/point"></EditText>
+            app:layout_constraintTop_toBottomOf="@+id/point"
+            android:maxLength="1"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ">
+
+        </EditText>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
