@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/startFrag"
         android:name="com.example.s205360lykkehjulet.startFrag"
-        android:label="fragment_start"
+        android:label="@string/kategorier"
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFrag_to_gameFrag"
@@ -17,12 +17,12 @@
     <fragment
         android:id="@+id/gameFrag"
         android:name="com.example.s205360lykkehjulet.game.GameFrag"
-        android:label="fragment_game"
+        android:label="@string/lykkehjulet"
         tools:layout="@layout/fragment_game" />
     <fragment
         android:id="@+id/roules"
         android:name="com.example.s205360lykkehjulet.Roules"
-        android:label="fragment_roules"
+        android:label="@string/spille_regler"
         tools:layout="@layout/fragment_roules" >
         <action
             android:id="@+id/action_roules_to_startFrag"

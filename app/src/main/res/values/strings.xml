@@ -4,7 +4,22 @@
     <string name="button2_text">Bogtitler</string>
     <string name="button3_text">Sport</string>
     <string name="button4_text">Turistseværdigheder</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="point">Point: %d</string>
+    <string name="textView">GÆT ORDET</string>
+    <string name="kobVokal">Køb Vokal</string>
+    <string name="getOrd">Gæt ord</string>
+    <string name="endGame">SPILLET ER SLUT</string>
+    <string name="your_point">"DINE POINT: %d"</string>
+    <string name="exit">Exit</string>
+    <string name="play_again">SPIL IGEN</string>
+    <string name="try_again">PRØV IGEN!</string>
+    <string name="life">liv: %d</string>
+    <string name="kategorier">KATEGORIER</string>
+    <string name="lykkehjulet">LYKKEHJULET</string>
+    <string name="spille_regler">SPILLEREGLER</string>
+
+
+
 
 </resources>
