@@ -11,10 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+        <TextView
+            android:id="@+id/categorieView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/wordToGuessText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -22,7 +32,7 @@
             android:layout_marginEnd="50dp"
             android:gravity="center"
             android:text="@string/textView"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +49,7 @@
             android:text="@string/point"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +63,7 @@
             android:text="@string/life"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/point"
@@ -69,8 +79,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            >
+            android:textSize="20sp" >
 
         </TextView>
 
@@ -92,36 +101,33 @@
             android:id="@+id/spinArrow"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="268dp"
             android:src="@drawable/spinarrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/spinWheel"
+            app:layout_constraintEnd_toEndOf="@+id/spinWheel"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/spinWheel"
+            app:layout_constraintTop_toTopOf="@+id/spinWheel"
+            app:layout_constraintVertical_bias="0.485"
             tools:ignore="MissingConstraints" />
+
 
         <Button
             android:id="@+id/getOrd"
             android:layout_width="300sp"
             android:layout_height="60dp"
             android:layout_marginStart="45dp"
-            android:backgroundTint="@color/orange"
-            android:text="@string/kobVokal"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lykkehjul" />
-
-        <Button
-            android:id="@+id/getOrd"
-            android:layout_width="140dp"
-            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="45dp"
-            android:text="@string/getOrd"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:layout_marginBottom="40dp"
             android:backgroundTint="@color/orange"
+            android:text="@string/getOrd"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lykkehjul">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinWheel">
+
         </Button>
 
 
@@ -132,14 +138,19 @@
             android:layout_marginStart="55dp"
             android:layout_marginTop="68dp"
             android:layout_marginEnd="55dp"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="1"
+            android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/point"
-            android:maxLength="1"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ">
+            tools:ignore="SpeakableTextPresentCheck">
 
         </EditText>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
