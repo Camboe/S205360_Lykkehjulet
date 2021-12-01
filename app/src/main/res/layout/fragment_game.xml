@@ -100,9 +100,9 @@
             tools:ignore="MissingConstraints" />
 
         <Button
-            android:id="@+id/kobVokal"
-            android:layout_width="140dp"
-            android:layout_height="70dp"
+            android:id="@+id/getOrd"
+            android:layout_width="300sp"
+            android:layout_height="60dp"
             android:layout_marginStart="45dp"
             android:backgroundTint="@color/orange"
             android:text="@string/kobVokal"
