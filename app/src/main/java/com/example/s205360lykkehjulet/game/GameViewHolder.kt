@@ -55,10 +55,15 @@ class GameViewHolder : ViewModel() {
         } else wrongGuess()
     }
 
-    //Metode hvis man har vundet
-    fun winGame() {
-        if (quessedCorrectLetters.containsAll(currentWordList))
-            return
+
+    //Method for winGame
+    fun winGame(): Boolean {
+        if (guessedCorrectLetters.containsAll(currentWordList)) {
+            return true
+        }
+        return false
+
+
     }
 
     //sets the fildes actions.
