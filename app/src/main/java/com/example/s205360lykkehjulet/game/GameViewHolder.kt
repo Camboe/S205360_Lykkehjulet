@@ -33,7 +33,14 @@ class GameViewHolder : ViewModel() {
 
     }
 
-    lateinit var quessedCorrectLetters: MutableList<String>
+    //hide the letters so the player can't see the word.
+    fun hideLetters(): MutableList<String> {
+        var hideCurrentWordList = ""
+        for (i in 1..currentWordList.size) {
+            hideCurrentWordList += "*"
+        }
+        return hideCurrentWordList.split("").toMutableList()
+    }
 
     //check if the letter is in the list.
     fun checkGuess(letter: String) {
