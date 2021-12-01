@@ -30,7 +30,7 @@ class Roules : Fragment() {
 
 
     }
-    //Method that moves on to the next fragment.
+    //Method that moves on to the next fragment. inspiration from unit 3 CupCake app
     fun goToFragment(){
         findNavController().navigate(R.id.action_roules_to_startFrag)
     }
