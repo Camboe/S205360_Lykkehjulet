@@ -20,6 +20,7 @@ class startFrag : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_start, container, false)
 
+        //inspiration from unit 2 Affirmation app
         val myDataset = DataCategories().loadButtonContext()
         val recyclerView = root?.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView!!.adapter = ItemAdapter(requireContext(), myDataset)
