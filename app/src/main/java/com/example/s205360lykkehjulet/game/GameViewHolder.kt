@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel
 import com.example.s205360lykkehjulet.Data.wordList
 
 class GameViewHolder : ViewModel() {
-    private var _point = 0
+    var _point = 0
     val point: Int
-    get() = _point
+        get() = _point
 
-    private var _life = 0
+    var _life = 5
     val life: Int
-    get() = _life
+        get() = _life
 
     var fieldsOnWheel = fieldsList
     // lateinit is used so the variable is defined later.
