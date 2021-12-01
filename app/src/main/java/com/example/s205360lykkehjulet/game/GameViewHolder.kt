@@ -60,9 +60,55 @@ class GameViewHolder : ViewModel() {
             return
     }
 
-    //skal evt. implementeres
-//init {
-    //Log.d("GameFrag", "GameViewHolder created!")}
+    //sets the fildes actions.
+    fun WheelField(): String {
+        field = fieldsOnWheel.random()
+
+        when (field) {
+            "EKSTRA LIV" -> {
+                lifeUpdate()
+            }
+            "MISTET LIV" -> {
+                wrongGuess()
+            }
+            "500 POINT" -> {
+                _point += 500
+            }
+            "750 POINT" -> {
+                _point += 750
+            }
+            "1000 POINT" -> {
+                _point += 1000
+            }
+            "1500 POINT" -> {
+                _point += 1500
+            }
+            "2000 POINT" -> {
+                _point += 2000
+            }
+            "FALLIT" -> {
+                fallit()
+            }
+
+        }
+        return field
+    }
+
+
+    //if fallit set life to 0
+    fun fallit() {
+        _life = 0
+    }
+
+
+    //Updates life with +1
+    private fun lifeUpdate() {
+        _life += 1
+    }
+
+    //Update life with -1
+    private fun wrongGuess() {
+        _life -= 1
 
     var word: String = "null"
 
