@@ -85,12 +85,12 @@
 
 
         <ImageView
-            android:id="@+id/lykkehjul"
+            android:id="@+id/spinWheel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="110dp"
+            android:layout_marginBottom="110sp"
             android:adjustViewBounds="true"
-            android:src="@drawable/lykkehjul1"
+            android:src="@drawable/spinwheel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
