@@ -18,7 +18,14 @@
         android:id="@+id/gameFrag"
         android:name="com.example.s205360lykkehjulet.game.GameFrag"
         android:label="@string/lykkehjulet"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFrag_to_startFrag"
+            app:destination="@id/startFrag" />
+        <action
+            android:id="@+id/action_gameFrag_self"
+            app:destination="@id/gameFrag" />
+    </fragment>
     <fragment
         android:id="@+id/roules"
         android:name="com.example.s205360lykkehjulet.Roules"
