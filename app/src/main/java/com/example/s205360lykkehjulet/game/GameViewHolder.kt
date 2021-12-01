@@ -35,14 +35,16 @@ class GameViewHolder : ViewModel() {
 
     lateinit var quessedCorrectLetters: MutableList<String>
 
+    //check if the letter is in the list.
     fun checkGuess(letter: String) {
-        //Der tilføjes "" da mellemrum ikke kan gættes
-        if ((" ") in currentWordList) quessedCorrectLetters.add(" ")
+        //adds "" because spaces can not be gussed
+        if ((" ") in currentWordList) guessedCorrectLetters.add(" ")
 
-        //Tjek om det er det rigtige bogstav
+        //check if the letter is right
         if (letter in currentWordList) {
-            quessedCorrectLetters.add(letter)
-        }
+            guessedCorrectLetters.add(letter)
+            println(guessedCorrectLetters)
+        } else wrongGuess()
     }
 
     //Metode hvis man har vundet
