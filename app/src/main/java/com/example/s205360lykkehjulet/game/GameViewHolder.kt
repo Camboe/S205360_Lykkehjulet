@@ -60,27 +60,20 @@ class GameViewHolder : ViewModel() {
     fun generateWord(category: String): String {
         when (category) {
             "Kendte" -> {
-                word = "Kendte"
-                return word
+                listOfWords = famousList
             }
             "Bogtitler" -> {
-                word = "Bogtitler"
-                return word
+                listOfWords = bookTitlesList
             }
             "Sport" -> {
-                word = "Sport"
-                return word
+                listOfWords = sportList
             }
             "Turistseværdigheder" -> {
-                word = "Turistseværdigheder"
-                return word
+                listOfWords = seveardighederList
             }
 
-            else -> {
-                word = "Intet"
-                return word
-            }
         }
+        return newWord()
     }
 }
 
