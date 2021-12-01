@@ -13,11 +13,11 @@ class GameViewHolder : ViewModel() {
     val life: Int
     get() = _life
 
-
-    private val listOfWords = wordList
-
-    //lateinit benyttes til at variablen først bliver defineret senere
-
+    var fieldsOnWheel = fieldsList
+    // lateinit is used so the variable is defined later.
+    lateinit var listOfWords: List<String>
+    lateinit var field: String
+    lateinit var currentWord: String
     lateinit var currentWordList: MutableList<String>
 
 
