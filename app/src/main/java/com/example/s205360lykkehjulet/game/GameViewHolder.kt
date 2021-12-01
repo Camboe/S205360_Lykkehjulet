@@ -1,8 +1,9 @@
 package com.example.s205360lykkehjulet.game
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.s205360lykkehjulet.Data.wordList
+import com.example.s205360lykkehjulet.Data.*
+import java.lang.StringBuilder
+
 
 class GameViewHolder : ViewModel() {
     var _point = 0
