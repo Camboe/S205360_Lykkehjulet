@@ -112,6 +112,38 @@ class GameViewHolder : ViewModel() {
 
     var word: String = "null"
 
+    }
+
+
+    //inspiraition from unit 3 unscramble app
+    fun reintializeGame() {
+        _point = 0
+        _life = 5
+
+    }
+
+    // Check if the letter is in the hidden word and shows the hidden letter if the
+    // letter is in the index of currentWords.
+    // and sets the word on the right position.
+    fun checkWord(hideWord: String, letter: Char): String {
+        var tempHideWord = hideWord
+        for (i in 0..currentWord.length) {
+            if (letter in currentWord) {
+                var wordPosition = currentWord.indexOf(letter, i)
+                if (wordPosition >= 0) {
+                    val checkBuilder = StringBuilder(tempHideWord)
+                    checkBuilder.setCharAt(wordPosition, letter)
+                    tempHideWord = checkBuilder.toString()
+                }
+
+            }
+        }
+
+        return tempHideWord
+    }
+
+
+    //set the different categorylist (listOfWords) on the categories
     fun generateWord(category: String): String {
         when (category) {
             "Kendte" -> {
