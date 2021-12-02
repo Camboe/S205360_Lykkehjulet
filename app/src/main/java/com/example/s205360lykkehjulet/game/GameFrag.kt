@@ -112,10 +112,21 @@ class GameFrag : Fragment() {
         fallitCheck(view)
 
     }
-    //private fun submitLetters() {
-        //val letter = binding.textFieldWord.text.toString()
-        //if (viewModel.checkGuess(letter)) {
 
+    // Inspiration from unit 3 Uscramble app. Sets the messages on the dialogboks, and shows the point.
+    private fun showFinalDialog(view: View) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.endGame))
+            .setMessage(getString(R.string.your_point, viewModel.point))
+            .setCancelable(false)
+            .setNegativeButton(getString(R.string.exit)) { _, _ ->
+                exitGame(view)
+            }
+            .setPositiveButton(getString(R.string.play_again)) { _, _ ->
+                restartGame()
+            }
+            .show()
+    }
 
         //}
     //}
