@@ -30,10 +30,14 @@ class GameViewHolder : ViewModel() {
         currentWordList = currentWord.split("").toMutableList()
         currentWordList.removeFirst()
         currentWordList.removeLast()
-        print(currentWordList)
+        val letters = hideLetters()
 
-        return currentWordList
+        var words = ""
+        for (word in letters) {
+            words += word
 
+        }
+        return words
     }
 
     // Hide the letters so the player can't see the word.
