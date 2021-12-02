@@ -60,8 +60,21 @@ class GameFrag : Fragment() {
             binding.textFieldWord.isEnabled = true
             binding.textFieldWord.showkeyboard()
         }
-        binding.spinArrow.setOnClickListener{ spinWheel() }
-        binding.getOrd.setOnClickListener{ }
+
+        // hides the keyboard, invoke you to spin on the spinButton before you can add letters.
+        binding.textFieldWord.isEnabled = false
+
+        binding.getBogstav.setOnClickListener { submitLetters(view)
+        binding.wordToGuessText.text = viewModel.checkWord(binding.wordToGuessText.text as String, binding.textFieldWord.text.toString().single())}
+
+        // hides the keyboard when player keys input. Inspiration from Stack overflow.
+        val hideKeyboard = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        binding.textFieldWord.addTextChangedListener {
+            hideKeyboard.hideSoftInputFromWindow(
+                view.windowToken,
+                0
+            )
+        }
 
     }
 
