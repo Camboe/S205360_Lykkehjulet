@@ -1,30 +1,27 @@
 package com.example.s205360lykkehjulet.game
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
+import android.view.inputmethod.InputMethodManager
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.example.s205360lykkehjulet.R
-import com.example.s205360lykkehjulet.databinding.ActivityMainBinding
 import com.example.s205360lykkehjulet.databinding.FragmentGameBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class GameFrag : Fragment() {
-    // private val points_at_start
-    // lav en liste af bogstaver.
-    // lav en liste af ord.
-
-
-
     //reference til GameViewHolder
-    private val viewModel : GameViewHolder by viewModels ()
+    private val viewModel: GameViewHolder by viewModels()
 
     // gives access to view in fragment_game
-    private lateinit var binding: FragmentGameBinding
-
+    private var _binding: FragmentGameBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreateView(
@@ -32,17 +29,10 @@ class GameFrag : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentGameBinding.inflate(inflater, container, false)
+        _binding = FragmentGameBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-
-        // random choose word:
-        val category = context?.resources?.getString(requireArguments().getInt("Title"))
-
-        viewModel.generateWord(category!!)
-
-
-        binding.textView.text = viewModel.newWord().toString()
-        return binding.root
+        return view
     }
 
         //Click on buttons
