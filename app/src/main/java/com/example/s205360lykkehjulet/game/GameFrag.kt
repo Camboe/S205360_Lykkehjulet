@@ -141,5 +141,18 @@ class GameFrag : Fragment() {
         binding.point.text = "PONIT: ${viewModel.point}"
         binding.life.text = "LIV: ${viewModel.life}"
 
+    }
+
+    // ExitGame method calls the navigation gameFrag and sets the action to startFrag.
+    // When the user use the exit method the user comes back to startFrag and can now
+    // choose a new category.
+    fun exitGame(view: View) {
+        Navigation.findNavController(view).navigate(GameFragDirections.actionGameFragToStartFrag())
+    }
+    // Method restartGame is created so when the user push "SPIL IGEN" button in dialog the user can play again.
+    private fun restartGame() {
+        viewModel.reintializeGame()
+        playAgain()
+    }
 
 }
