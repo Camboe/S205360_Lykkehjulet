@@ -5,19 +5,33 @@
     <string name="button3_text">Sport</string>
     <string name="button4_text">Turistseværdigheder</string>
     <string name="point">Point: %d</string>
-    <string name="textView">GÆT ORDET</string>
-    <string name="kobVokal">Køb Vokal</string>
-    <string name="getBogstav">Gæt Bogstav</string>
+    <string name="guessWord">Gæt Ord</string>
+    <string name="guessLetter">Gæt Bogstav</string>
     <string name="endGame">SPILLET ER SLUT</string>
     <string name="your_point">"DINE POINT: %d"</string>
     <string name="exit">Exit</string>
     <string name="play_again">SPIL IGEN</string>
     <string name="try_again">PRØV IGEN!</string>
     <string name="life">liv: %d</string>
-    <string name="kategorier">Vælg Kategori</string>
-    <string name="lykkehjulet">Lykkehjulet</string>
-    <string name="spille_regler">Spilleregler Lykkehjulet</string>
-
+    <string name="chooseCategory">Vælg Kategori</string>
+    <string name="wheelOfFortune">Lykkehjulet</string>
+    <string name="game_rules">Spilleregler Lykkehjulet</string>
+    <string name="introTextRules">Inden spillets start, læs følgende spilleregler:</string>
+    <string name="rule_1">Spillet kan spilles af 1 spiller.</string>
+    <string name="rule_2">En spiller starter med at have 5 liv.</string>
+    <string name="rule_3">Inden spillets start vælges den ønskede kategori.</string>
+    <string name="rule_4">Spilleren starter spillet ved at trykke på \'Spin\' knappen på hjulet.</string>
+    <string name="rule_5">Mulige resultater af hjulet er:</string>
+    <string name="rule_6">- Antal point ex.1000\n- Ekstra liv\n- Mistet liv\n- Fallit.</string>
+    <string name="rule_7">Når spilleren lander på en værdi vælges et bogstav.</string>
+    <string name="rule_8">Hvis bogstavet er til stede, øges spillerens samlede antal point.</string>
+    <string name="rule_9">Hvis bogstavet ikke er tilstede mister spilleren et liv.</string>
+    <string name="rule_10">Hvis spilleren lander på \'Ekstra liv\' øges spillerens liv med 1.</string>
+    <string name="rule_11">Hvis spilleren lander på \'Mistet liv\' mister spilleren et liv</string>
+    <string name="rule_12">Hvis spilleren lander på \'Fallit\' mister spilleren alle sine liv, og spillet sluttes.</string>
+    <string name="rule_13">Spilleren kan benytte knappen \'Gæt Bogstav\' for at brkræfte sit valgte bogstav.</string>
+    <string name="rule_14">Spillet er vundet når alle bogstaverne i det gemte ord er fundet.</string>
+    <string name="rule_15">Spilleren kan nu vælge at spille spillet igen eller benytte exit knappen for at slutte.</string>
 
 
 

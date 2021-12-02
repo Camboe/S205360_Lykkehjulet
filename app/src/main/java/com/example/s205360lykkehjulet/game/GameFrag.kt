@@ -64,7 +64,7 @@ class GameFrag : Fragment() {
         // hides the keyboard, invoke you to spin on the spinButton before you can add letters.
         binding.textFieldWord.isEnabled = false
 
-        binding.getBogstav.setOnClickListener { submitLetters(view)
+        binding.guessLetterBtn.setOnClickListener { submitLetters(view)
         binding.wordToGuessText.text = viewModel.checkWord(binding.wordToGuessText.text as String, binding.textFieldWord.text.toString().single())}
 
         // hides the keyboard when player keys input. Inspiration from Stack overflow.
@@ -82,7 +82,6 @@ class GameFrag : Fragment() {
     @SuppressLint("SetTextI18n")
     fun spinWheel() {
         binding.wheelField.text = viewModel.WheelField()
-        binding.point.text = "PONIT: ${viewModel.point}"
         binding.life.text = "LIV: ${viewModel.life}"
 
 
@@ -111,6 +110,7 @@ class GameFrag : Fragment() {
     private fun submitLetters(view: View) {
         val letter = binding.textFieldWord.text.toString()
         viewModel.checkGuess(letter)
+        binding.point.text = "POINT: ${viewModel._point}"
         if (viewModel.winGame()) {
             showFinalDialog(view)
         }

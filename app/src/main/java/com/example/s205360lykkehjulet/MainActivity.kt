@@ -2,16 +2,10 @@ package com.example.s205360lykkehjulet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.recyclerview.widget.RecyclerView
-import com.example.s205360lykkehjulet.Data.DataCategories
-import com.example.s205360lykkehjulet.adapter.ItemAdapter
 import com.example.s205360lykkehjulet.databinding.ActivityMainBinding
-import javax.sql.DataSource
 
 
 class MainActivity : AppCompatActivity() {

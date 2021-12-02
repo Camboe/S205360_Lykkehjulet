@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/startFrag"
-        android:name="com.example.s205360lykkehjulet.startFrag"
-        android:label="@string/kategorier"
-        tools:layout="@layout/fragment_start" >
+        android:name="com.example.s205360lykkehjulet.CategoryFrag"
+        android:label="@string/chooseCategory"
+        tools:layout="@layout/fragment_category" >
         <action
             android:id="@+id/action_startFrag_to_gameFrag"
             app:destination="@id/gameFrag" />
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/gameFrag"
         android:name="com.example.s205360lykkehjulet.game.GameFrag"
-        android:label="@string/lykkehjulet"
+        android:label="@string/wheelOfFortune"
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFrag_to_startFrag"
@@ -28,9 +28,9 @@
     </fragment>
     <fragment
         android:id="@+id/roules"
-        android:name="com.example.s205360lykkehjulet.Roules"
-        android:label="@string/spille_regler"
-        tools:layout="@layout/fragment_roules" >
+        android:name="com.example.s205360lykkehjulet.Rules"
+        android:label="@string/game_rules"
+        tools:layout="@layout/fragment_rules" >
         <action
             android:id="@+id/action_roules_to_startFrag"
             app:destination="@id/startFrag" />

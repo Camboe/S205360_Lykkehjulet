@@ -1,10 +1,10 @@
 package com.example.s205360lykkehjulet.Data
 
 val famousList: List<String> =
-    listOf("madonna", "britney spears", "beyonce", "brad pitt")
+    listOf("madonna", "nik og jay", "mads langer", "brad pitt")
 
 val bookTitlesList: List<String> =
-    listOf("harry potter", "twilight", "da vinci code", "chocolat")
+    listOf("harry potter", "twilight", "da vinci mysteriet", "chocolat")
 
 val sportList: List<String> =
     listOf("fodbold", "tennis", "volleyball", "rugby")
