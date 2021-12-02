@@ -22,9 +22,9 @@ class GameViewHolder : ViewModel() {
     lateinit var currentWordList: MutableList<String>
 
 
-    fun newWord(): MutableList<String> {
-        var currentWordNumber = (0 until (wordList.size)).random()
-        var currentWord = listOfWords[currentWordNumber]
+    fun newWord(): String {
+        var currentWordNumber = (0 until (listOfWords.size)).random()
+        currentWord = listOfWords[currentWordNumber]
         currentWordList = currentWord.split("").toMutableList()
         currentWordList.removeFirst()
         currentWordList.removeLast()
