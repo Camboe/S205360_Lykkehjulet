@@ -133,8 +133,13 @@ class GameFrag : Fragment() {
             .show()
     }
 
-        //}
-    //}
+    // Resets the point and life. This function is used when player restarts the game.
+    @SuppressLint("SetTextI18n")
+    fun playAgain(){
+        viewModel._point = 0
+        viewModel._life = 5
+        binding.point.text = "PONIT: ${viewModel.point}"
+        binding.life.text = "LIV: ${viewModel.life}"
 
 
 }
