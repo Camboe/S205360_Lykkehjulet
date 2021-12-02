@@ -35,10 +35,13 @@ class GameFrag : Fragment() {
         return view
     }
 
-        //Click on buttons
+    // Click on buttons spinArrow and getBogstav
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.kobVokal.setOnClickListener {
+        val category = context?.resources?.getString(requireArguments().getInt("Title"))
+
+        viewModel.generateWord(category!!)
 
         }
         binding.spinArrow.setOnClickListener{ spinWheel() }
