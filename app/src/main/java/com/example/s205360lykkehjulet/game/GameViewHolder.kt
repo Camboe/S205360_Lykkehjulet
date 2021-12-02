@@ -15,11 +15,13 @@ class GameViewHolder : ViewModel() {
         get() = _life
 
     var fieldsOnWheel = fieldsList
+
     // lateinit is used so the variable is defined later.
     lateinit var listOfWords: List<String>
     lateinit var field: String
     lateinit var currentWord: String
     lateinit var currentWordList: MutableList<String>
+    var guessedCorrectLetters: MutableList<String> = arrayListOf()
 
 
     fun newWord(): String {
