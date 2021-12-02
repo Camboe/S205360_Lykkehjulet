@@ -82,9 +82,13 @@ class GameFrag : Fragment() {
         Toast.makeText(activity, "spin igen", Toast.LENGTH_SHORT).show()
 
     }
-
-    fun guessWord () {
-
+    // Shows the keybord for the player.
+    // It's called in line 61 when the player use the spin button the keyboard comes up.
+    private fun View.showkeyboard() {
+        this.requestFocus()
+        val inputMethodManager =
+            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
     }
 
 
