@@ -25,7 +25,7 @@ class GameViewHolder : ViewModel() {
 
 
     fun newWord(): String {
-        var currentWordNumber = (0 until (listOfWords.size)).random()
+        val currentWordNumber = (0 until (listOfWords.size)).random()
         currentWord = listOfWords[currentWordNumber]
         currentWordList = currentWord.split("").toMutableList()
         currentWordList.removeFirst()
@@ -112,14 +112,6 @@ class GameViewHolder : ViewModel() {
         return field
     }
 
-
-    fun updatePoint() {
-        if (guessedCorrectLetters.containsAll(currentWordList)) {
-            guessedCorrectLetters.add(_point.toString())
-        }
-        return
-
-    }
 
     // If fallit set life to 02
     fun fallit() {

@@ -19,7 +19,7 @@ import com.example.s205360lykkehjulet.model.CategoriesButton
 class CategoryAdapter(private val context: Context, private val dataset: List<CategoriesButton>) :
     RecyclerView.Adapter<CategoryAdapter.ItemViewHolder>() {
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.categorieTitle)
         val imageView: ImageView = view.findViewById(R.id.categorieImage)
         val button: Button = view.findViewById(R.id.categorieButton)
