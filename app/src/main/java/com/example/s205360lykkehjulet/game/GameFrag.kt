@@ -65,7 +65,25 @@ class GameFrag : Fragment() {
 
     }
 
-    fun buyVocal () {
+
+    // Checks if the player landed on fallit, then call dialog.
+    private fun fallitCheck(view: View){
+        if (viewModel.field == "FALLIT") {
+            viewModel.fallit()
+            showFinalDialog(view)
+        }
+
+    }
+
+
+    // Check if the letters is right.
+    private fun submitLetters(view: View) {
+        val letter = binding.textFieldWord.text.toString()
+        viewModel.checkGuess(letter)
+        if (viewModel.winGame()) {
+            showFinalDialog(view)
+        }
+        fallitCheck(view)
 
     }
     //private fun submitLetters() {
