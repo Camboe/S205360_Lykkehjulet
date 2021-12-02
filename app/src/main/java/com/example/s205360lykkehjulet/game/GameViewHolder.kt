@@ -34,7 +34,7 @@ class GameViewHolder : ViewModel() {
 
     }
 
-    //hide the letters so the player can't see the word.
+    // Hide the letters so the player can't see the word.
     fun hideLetters(): MutableList<String> {
         var hideCurrentWordList = ""
         for (i in 1..currentWordList.size) {
@@ -43,7 +43,7 @@ class GameViewHolder : ViewModel() {
         return hideCurrentWordList.split("").toMutableList()
     }
 
-    //check if the letter is in the list.
+    // Check if the letter is in the list.
     fun checkGuess(letter: String) {
         //adds "" because spaces can not be gussed
         if ((" ") in currentWordList) guessedCorrectLetters.add(" ")
@@ -56,7 +56,9 @@ class GameViewHolder : ViewModel() {
     }
 
 
-    //Method for winGame
+
+
+    // Method for winGame.
     fun winGame(): Boolean {
         if (guessedCorrectLetters.containsAll(currentWordList)) {
             return true
@@ -66,7 +68,7 @@ class GameViewHolder : ViewModel() {
 
     }
 
-    //sets the fildes actions.
+    // Sets the wheels actions.
     fun WheelField(): String {
         field = fieldsOnWheel.random()
 
@@ -107,21 +109,19 @@ class GameViewHolder : ViewModel() {
     }
 
 
-    //Updates life with +1
+    // Updates life with +1
     private fun lifeUpdate() {
         _life += 1
     }
 
-    //Update life with -1
+    // Update life with -1
     private fun wrongGuess() {
         _life -= 1
 
-    var word: String = "null"
 
     }
 
-
-    //inspiraition from unit 3 unscramble app
+    // Inspiraition from unit 3 unscramble app
     fun reintializeGame() {
         _point = 0
         _life = 5
@@ -149,7 +149,7 @@ class GameViewHolder : ViewModel() {
     }
 
 
-    //set the different categorylist (listOfWords) on the categories
+    // Set the different categorylist (listOfWords) on the categories
     fun generateWord(category: String): String {
         when (category) {
             "Kendte" -> {
