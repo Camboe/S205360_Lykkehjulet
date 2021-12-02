@@ -43,6 +43,22 @@ class GameFrag : Fragment() {
 
         viewModel.generateWord(category!!)
 
+        // updates point and life for the player to see.
+        binding.point.text = "PONIT: ${viewModel.point}"
+        binding.life.text = "LIV: ${viewModel.life}"
+
+        // random choose word
+        binding.wordToGuessText.text = viewModel.generateWord(category)
+
+        // adding the category name from stat_frag to game_frag
+        binding.categorieView.text = category
+
+
+        binding.spinArrow.setOnClickListener {
+            spinWheel()
+            fallitCheck(view)
+            binding.textFieldWord.isEnabled = true
+            binding.textFieldWord.showkeyboard()
         }
         binding.spinArrow.setOnClickListener{ spinWheel() }
         binding.getOrd.setOnClickListener{ }
