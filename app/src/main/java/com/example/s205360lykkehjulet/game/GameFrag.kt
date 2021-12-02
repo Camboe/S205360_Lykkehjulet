@@ -78,8 +78,13 @@ class GameFrag : Fragment() {
 
     }
 
-    fun spinWheel(){
-        Toast.makeText(activity, "spin igen", Toast.LENGTH_SHORT).show()
+
+    @SuppressLint("SetTextI18n")
+    fun spinWheel() {
+        binding.wheelField.text = viewModel.WheelField()
+        binding.point.text = "PONIT: ${viewModel.point}"
+        binding.life.text = "LIV: ${viewModel.life}"
+
 
     }
     // Shows the keybord for the player.
