@@ -64,11 +64,17 @@ class GameFrag : Fragment() {
         // hides the keyboard, invoke you to spin on the spinButton before you can add letters.
         binding.textFieldWord.isEnabled = false
 
-        binding.guessLetterBtn.setOnClickListener { submitLetters(view)
-        binding.wordToGuessText.text = viewModel.checkWord(binding.wordToGuessText.text as String, binding.textFieldWord.text.toString().single())}
+        binding.guessLetterBtn.setOnClickListener {
+            submitLetters(view)
+            binding.wordToGuessText.text = viewModel.checkWord(
+                binding.wordToGuessText.text as String,
+                binding.textFieldWord.text.toString().single()
+            )
+        }
 
         // hides the keyboard when player keys input. Inspiration from Stack overflow.
-        val hideKeyboard = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val hideKeyboard =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         binding.textFieldWord.addTextChangedListener {
             hideKeyboard.hideSoftInputFromWindow(
                 view.windowToken,
@@ -86,6 +92,7 @@ class GameFrag : Fragment() {
 
 
     }
+
     // Shows the keybord for the player.
     // It's called in line 61 when the player use the spin button the keyboard comes up.
     private fun View.showkeyboard() {
@@ -97,7 +104,7 @@ class GameFrag : Fragment() {
 
 
     // Checks if the player landed on fallit, then call dialog.
-    private fun fallitCheck(view: View){
+    private fun fallitCheck(view: View) {
         if (viewModel.field == "FALLIT") {
             viewModel.fallit()
             showFinalDialog(view)
@@ -135,7 +142,7 @@ class GameFrag : Fragment() {
 
     // Resets the point and life. This function is used when player restarts the game.
     @SuppressLint("SetTextI18n")
-    fun playAgain(){
+    fun playAgain() {
         viewModel._point = 0
         viewModel._life = 5
         binding.point.text = "PONIT: ${viewModel.point}"
@@ -149,6 +156,7 @@ class GameFrag : Fragment() {
     fun exitGame(view: View) {
         Navigation.findNavController(view).navigate(GameFragDirections.actionGameFragToStartFrag())
     }
+
     // Method restartGame is created so when the user push "SPIL IGEN" button in dialog the user can play again.
     private fun restartGame() {
         viewModel.reintializeGame()

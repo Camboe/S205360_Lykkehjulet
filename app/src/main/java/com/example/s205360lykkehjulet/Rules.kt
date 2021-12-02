@@ -12,7 +12,6 @@ import com.example.s205360lykkehjulet.adapter.RulesAdapter
 import com.example.s205360lykkehjulet.databinding.FragmentRulesBinding
 
 
-
 class Rules : Fragment() {
     private lateinit var binding: FragmentRulesBinding
 
@@ -28,7 +27,7 @@ class Rules : Fragment() {
 
         return binding.root
     }
-    //Set click on button startSpil
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val list = listOf<String>(
@@ -53,13 +52,16 @@ class Rules : Fragment() {
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = RulesAdapter(list)
         }
-        binding.startGame.setOnClickListener{goToFragment()
+        // Set click on button startSpil
+        binding.startGame.setOnClickListener {
+            goToFragment()
         }
 
 
     }
+
     //Method that moves on to the next fragment. inspiration from unit 3 CupCake app
-    fun goToFragment(){
+    fun goToFragment() {
         findNavController().navigate(R.id.action_roules_to_startFrag)
     }
 

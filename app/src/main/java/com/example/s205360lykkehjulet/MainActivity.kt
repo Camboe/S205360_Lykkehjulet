@@ -11,6 +11,7 @@ import com.example.s205360lykkehjulet.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     // Make the navController as a variable so i can use it in a method
     // Inspiration from unit 3 CupCake app.
+
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
     // Method for navigation up button in the app. Inspiration from unit 3 CupCake app.
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()

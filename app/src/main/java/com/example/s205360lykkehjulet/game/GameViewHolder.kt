@@ -43,8 +43,13 @@ class GameViewHolder : ViewModel() {
     // Hide the letters so the player can't see the word.
     fun hideLetters(): MutableList<String> {
         var hideCurrentWordList = ""
-        for (i in 1..currentWordList.size) {
-            hideCurrentWordList += "*"
+        for (i in 0..currentWordList.size - 1) {
+            if (!currentWordList.get(i).equals(" ")) {
+                hideCurrentWordList += "*"
+            } else {
+                hideCurrentWordList += " "
+
+            }
         }
         return hideCurrentWordList.split("").toMutableList()
     }
@@ -54,14 +59,13 @@ class GameViewHolder : ViewModel() {
         //adds "" because spaces can not be gussed
         if ((" ") in currentWordList) guessedCorrectLetters.add(" ")
 
+
         //check if the letter is right
         if (letter in currentWordList) {
             guessedCorrectLetters.add(letter)
             println(guessedCorrectLetters)
         } else wrongGuess()
     }
-
-
 
 
     // Method for winGame.
@@ -109,7 +113,15 @@ class GameViewHolder : ViewModel() {
     }
 
 
-    //if fallit set life to 0
+    fun updatePoint() {
+        if (guessedCorrectLetters.containsAll(currentWordList)) {
+            guessedCorrectLetters.add(_point.toString())
+        }
+        return
+
+    }
+
+    // If fallit set life to 02
     fun fallit() {
         _life = 0
     }
