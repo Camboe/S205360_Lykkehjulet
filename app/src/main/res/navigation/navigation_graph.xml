@@ -22,9 +22,6 @@
         <action
             android:id="@+id/action_gameFrag_to_startFrag"
             app:destination="@id/startFrag" />
-        <action
-            android:id="@+id/action_gameFrag_self"
-            app:destination="@id/gameFrag" />
     </fragment>
     <fragment
         android:id="@+id/roules"

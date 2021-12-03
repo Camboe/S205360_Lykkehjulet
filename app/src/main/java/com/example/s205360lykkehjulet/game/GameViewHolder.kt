@@ -3,7 +3,11 @@ package com.example.s205360lykkehjulet.game
 import androidx.lifecycle.ViewModel
 import com.example.s205360lykkehjulet.Data.*
 import java.lang.StringBuilder
-
+/**
+ * Collaborated whit Thamara Chellakooty s205337
+ * Inspiration from Unscramble app unit 3.
+ * https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#6
+ */
 
 class GameViewHolder : ViewModel() {
     var _point = 0
@@ -20,13 +24,11 @@ class GameViewHolder : ViewModel() {
     lateinit var listOfWords: List<String>
     lateinit var field: String
     lateinit var currentWord: String
-    // inspiration from Unscramble app unit 3.
-    // https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#6
     lateinit var currentWordList: MutableList<String>
     var guessedCorrectLetters: MutableList<String> = arrayListOf()
-    lateinit var randomField: String
 
     // Generate ta word from a list. and uses the function hideLetters to return the word with * insted of letters.
+    // Assested by tutor
     fun newWord(): String {
         val currentWordNumber = (0 until (listOfWords.size)).random()
         currentWord = listOfWords[currentWordNumber]
@@ -44,6 +46,7 @@ class GameViewHolder : ViewModel() {
     }
 
     // Hide the letters so the player can't see the word. And make space in the word without *.
+    // Assested by tutor
     fun hideLetters(): MutableList<String> {
         var hideCurrentWordList = ""
         for (i in 0..currentWordList.size - 1) {
@@ -68,6 +71,7 @@ class GameViewHolder : ViewModel() {
             points(field)
             println(guessedCorrectLetters)
         } else wrongGuess()
+
     }
 
 
@@ -81,7 +85,7 @@ class GameViewHolder : ViewModel() {
 
     }
 
-    // Sets the wheels actions.
+    // Sets the wheels actions eksta liv, mistet liv og fallit.
     fun wheelField(): String {
         field = fieldsOnWheel.random()
 
@@ -100,8 +104,9 @@ class GameViewHolder : ViewModel() {
         return field
     }
 
-    fun points(randomField: String): Int{
-        when(randomField) {
+    // Set the point actions.
+    fun points(randomField: String): Int {
+        when (randomField) {
             "500 POINT" -> {
                 _point += 500
             }
@@ -141,17 +146,11 @@ class GameViewHolder : ViewModel() {
 
     }
 
-    // Inspiraition from unit 3 unscramble app
-    // https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#11
-    fun reintializeGame() {
-        _point = 0
-        _life = 5
-
-    }
 
     // Check if the letter is in the hidden word and shows the hidden letter if the
     // letter is in the index of currentWords.
     // and sets the word on the right position.
+    // Assested by tutor
     fun checkWord(hideWord: String, letter: Char): String {
         var tempHideWord = hideWord
         for (i in 0..currentWord.length) {

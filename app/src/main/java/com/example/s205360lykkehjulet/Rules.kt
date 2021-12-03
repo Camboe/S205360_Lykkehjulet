@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.s205360lykkehjulet.adapter.RulesAdapter
 import com.example.s205360lykkehjulet.databinding.FragmentRulesBinding
 
-// Inspiration from unit 2 Affirmation app
-// https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list#4
+/**
+ * Inspiration from unit 2 Affirmation app
+ * https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list#4
+ */
 class Rules : Fragment() {
     private lateinit var binding: FragmentRulesBinding
 
@@ -28,6 +30,7 @@ class Rules : Fragment() {
 
         return binding.root
     }
+
     // takes the list of strings into the recyclerview.
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,8 +64,11 @@ class Rules : Fragment() {
 
     }
 
-    // Method that moves on to the next fragment. inspiration from unit 3 CupCake app
-    // https://developer.android.com/codelabs/basic-android-kotlin-training-shared-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-4%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-shared-viewmodel#2
+
+    /** inspiration from unit 3 CupCake app
+    //https://developer.android.com/codelabs/basic-android-kotlin-training-shared-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-4%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-shared-viewmodel#2
+     */
+    // Method that moves on to the next fragment.
     fun goToFragment() {
         findNavController().navigate(R.id.action_roules_to_startFrag)
     }

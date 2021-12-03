@@ -1,5 +1,6 @@
 package com.example.s205360lykkehjulet.Data
 
+    // The list contains the different wheel elements.
 val fieldsList: List<String> =
     listOf(
         "500 POINT",

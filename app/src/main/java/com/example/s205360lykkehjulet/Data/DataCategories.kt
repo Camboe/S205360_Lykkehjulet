@@ -3,7 +3,7 @@ package com.example.s205360lykkehjulet.Data
 import com.example.s205360lykkehjulet.model.CategoriesButton
 import com.example.s205360lykkehjulet.R
 
-//inspiration from unit 2 Affimation app
+// Inspiration from unit 2 Affimation app. Generates the cardviews.
 class DataCategories {
     fun loadButtonContext(): List<CategoriesButton> {
         return listOf(

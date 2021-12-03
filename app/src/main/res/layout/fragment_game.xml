@@ -15,7 +15,8 @@
             android:id="@+id/categorieView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:gravity="center"
+            android:textSize="40sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="90dp"
             android:layout_marginEnd="50dp"
             android:gravity="center"
             android:text="@string/guessWord"
@@ -44,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="45dp"
             android:layout_marginEnd="300dp"
             android:text="@string/point"
             android:textAllCaps="true"
@@ -55,6 +56,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Point: 0" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/point"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/point"
+            tools:text="" />
 
         <TextView
             android:id="@+id/life"
@@ -69,7 +84,18 @@
             app:layout_constraintTop_toTopOf="@+id/point"
             app:layout_constraintBottom_toBottomOf="@+id/point"
             android:layout_marginEnd="20dp"
-            tools:text="LIV: 5" />
+            tools:text="5" />
+
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_baseline_favorite_24"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/life"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.458" />
 
         <TextView
             android:id="@+id/wheelField"

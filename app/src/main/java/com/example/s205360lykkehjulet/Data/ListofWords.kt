@@ -1,5 +1,7 @@
 package com.example.s205360lykkehjulet.Data
 
+
+    // Here is four list with that contains the different words for the categories.
 val famousList: List<String> =
     listOf("madonna", "nik og jay", "mads langer", "brad pitt")
 

@@ -5,6 +5,7 @@
     <string name="button3_text">Sport</string>
     <string name="button4_text">Turistseværdigheder</string>
     <string name="point">Point: %d</string>
+    <string name="life">%d</string>
     <string name="guessWord">Gæt Ord</string>
     <string name="guessLetter">Gæt Bogstav</string>
     <string name="endGame">SPILLET ER SLUT</string>
@@ -13,7 +14,6 @@
     <string name="exit">Exit</string>
     <string name="play_again">SPIL IGEN</string>
     <string name="try_again">PRØV IGEN!</string>
-    <string name="life">liv: %d</string>
     <string name="chooseCategory">Vælg Kategori</string>
     <string name="wheelOfFortune">Lykkehjulet</string>
     <string name="game_rules">Spilleregler Lykkehjulet</string>
@@ -33,7 +33,7 @@
     <string name="rule_13">Spilleren kan benytte knappen \'Gæt Bogstav\' for at brkræfte sit valgte bogstav.</string>
     <string name="rule_14">Spillet er vundet når alle bogstaverne i det gemte ord er fundet.</string>
     <string name="rule_15">Spilleren kan nu vælge at spille spillet igen eller benytte exit knappen for at slutte.</string>
-
+    <string name="lifeCount">%d</string>
 
 
 </resources>

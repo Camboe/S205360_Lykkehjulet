@@ -13,9 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.s205360lykkehjulet.R
 import com.example.s205360lykkehjulet.model.CategoriesButton
 
-
-// Inspiration from unit 2 Affirmation app
-// https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list#4
+/**
+ * Inspiration from unit 2 Affirmation app
+ * https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list#4
+ */
 class CategoryAdapter(private val context: Context, private val dataset: List<CategoriesButton>) :
     RecyclerView.Adapter<CategoryAdapter.ItemViewHolder>() {
 

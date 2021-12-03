@@ -7,9 +7,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s205360lykkehjulet.R
 
-// Inspiration from unit 2 Affirmation app
-// https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list#4
-// Recyclerview created for the rulelist.
+/**
+ * Inspiration from unit 2 Affirmation app
+ * https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list#4
+ */
+//  Recyclerview created for the rulelist.
 
 class RulesAdapter(private val ruleList: List<String>) :
     RecyclerView.Adapter<RulesAdapter.RulesViewHolder>() {
