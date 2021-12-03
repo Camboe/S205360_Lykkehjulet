@@ -16,10 +16,11 @@ import com.example.s205360lykkehjulet.databinding.FragmentGameBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class GameFrag : Fragment() {
-    //reference til GameViewHolder
+    // Reference til GameViewHolder. inspiration from Unscramble app unit 3
+    // https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#3
     private val viewModel: GameViewHolder by viewModels()
 
-    // gives access to view in fragment_game
+    // Gives access to view in fragment_game
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
 
@@ -27,7 +28,7 @@ class GameFrag : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -47,21 +48,26 @@ class GameFrag : Fragment() {
         binding.point.text = "PONIT: ${viewModel.point}"
         binding.life.text = "LIV: ${viewModel.life}"
 
-        // random choose word
+        // Random choose word.
         binding.wordToGuessText.text = viewModel.generateWord(category)
 
-        // adding the category name from stat_frag to game_frag
+        // Adding the category name from category_frag to game_frag.
         binding.categorieView.text = category
 
+        // Does so you can't push the guess letter button.
+        binding.guessLetterBtn.isEnabled = false
 
+        // When the player click on the spin arrow, the guessLetterBtn and the testfieldWord
+        // gets activated. And the keyboard will be showed.
         binding.spinArrow.setOnClickListener {
             spinWheel()
             fallitCheck(view)
             binding.textFieldWord.isEnabled = true
+            binding.guessLetterBtn.isEnabled = true
             binding.textFieldWord.showkeyboard()
         }
 
-        // hides the keyboard, invoke you to spin on the spinButton before you can add letters.
+        // Hides the keyboard, invoke you to spin on the spinButton before you can add letters.
         binding.textFieldWord.isEnabled = false
 
         binding.guessLetterBtn.setOnClickListener {
@@ -72,7 +78,8 @@ class GameFrag : Fragment() {
             )
         }
 
-        // hides the keyboard when player keys input. Inspiration from Stack overflow.
+
+        // Hides the keyboard when player keys input. Inspiration from Stack overflow.
         val hideKeyboard =
             context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         binding.textFieldWord.addTextChangedListener {
@@ -84,13 +91,10 @@ class GameFrag : Fragment() {
 
     }
 
-
     @SuppressLint("SetTextI18n")
     fun spinWheel() {
-        binding.wheelField.text = viewModel.WheelField()
+        binding.wheelField.text = viewModel.wheelField()
         binding.life.text = "LIV: ${viewModel.life}"
-
-
     }
 
     // Shows the keybord for the player.
@@ -107,17 +111,19 @@ class GameFrag : Fragment() {
     private fun fallitCheck(view: View) {
         if (viewModel.field == "FALLIT") {
             viewModel.fallit()
-            showFinalDialog(view)
+            showDialogFallit(view)
         }
 
     }
 
 
-    // Check if the letters is right.
+    // Check if the letters is right, and updates the point and life.
+    @SuppressLint("SetTextI18n")
     private fun submitLetters(view: View) {
         val letter = binding.textFieldWord.text.toString()
         viewModel.checkGuess(letter)
         binding.point.text = "POINT: ${viewModel._point}"
+        binding.life.text = "${viewModel.life}"
         if (viewModel.winGame()) {
             showFinalDialog(view)
         }
@@ -126,41 +132,51 @@ class GameFrag : Fragment() {
     }
 
     // Inspiration from unit 3 Uscramble app. Sets the messages on the dialogboks, and shows the point.
+    // https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#7
     private fun showFinalDialog(view: View) {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.endGame))
             .setMessage(getString(R.string.your_point, viewModel.point))
             .setCancelable(false)
             .setNegativeButton(getString(R.string.exit)) { _, _ ->
-                exitGame(view)
+                exitGame()
             }
             .setPositiveButton(getString(R.string.play_again)) { _, _ ->
-                restartGame()
+                restartGame(view)
             }
             .show()
     }
 
-    // Resets the point and life. This function is used when player restarts the game.
-    @SuppressLint("SetTextI18n")
-    fun playAgain() {
-        viewModel._point = 0
-        viewModel._life = 5
-        binding.point.text = "PONIT: ${viewModel.point}"
-        binding.life.text = "LIV: ${viewModel.life}"
-
+    private fun showDialogFallit(view: View) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.endFallit))
+            .setMessage(getString(R.string.try_again))
+            .setCancelable(false)
+            .setNegativeButton(getString(R.string.exit)) { _, _ ->
+                exitGame()
+            }
+            .setPositiveButton(getString(R.string.play_again)) { _, _ ->
+                restartGame(view)
+            }
+            .show()
     }
 
-    // ExitGame method calls the navigation gameFrag and sets the action to startFrag.
-    // When the user use the exit method the user comes back to startFrag and can now
-    // choose a new category.
-    fun exitGame(view: View) {
-        Navigation.findNavController(view).navigate(GameFragDirections.actionGameFragToStartFrag())
+    // ExitGame method when the player use the Exit in the dialog. the lykkehjule game will close.
+    // Inspiration from Cup Cake app unit 4
+    // https://developer.android.com/codelabs/basic-android-kotlin-training-shared-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-4%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-shared-viewmodel#2
+    fun exitGame() {
+        activity?.finish()
+
     }
 
     // Method restartGame is created so when the user push "SPIL IGEN" button in dialog the user can play again.
-    private fun restartGame() {
-        viewModel.reintializeGame()
-        playAgain()
+    // method calls the navigation gameFrag and sets the action to startFrag.
+    // When the user use the exit method the user comes back to startFrag and can now
+    // choose a new category.
+    // inspiration from Cup Cake app unit 4
+    // https://developer.android.com/codelabs/basic-android-kotlin-training-shared-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-4%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-shared-viewmodel#2
+    private fun restartGame(view: View) {
+        Navigation.findNavController(view).navigate(GameFragDirections.actionGameFragToStartFrag())
     }
 
 }

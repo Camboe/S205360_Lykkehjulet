@@ -20,10 +20,13 @@ class GameViewHolder : ViewModel() {
     lateinit var listOfWords: List<String>
     lateinit var field: String
     lateinit var currentWord: String
+    // inspiration from Unscramble app unit 3.
+    // https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#6
     lateinit var currentWordList: MutableList<String>
     var guessedCorrectLetters: MutableList<String> = arrayListOf()
+    lateinit var randomField: String
 
-
+    // Generate ta word from a list. and uses the function hideLetters to return the word with * insted of letters.
     fun newWord(): String {
         val currentWordNumber = (0 until (listOfWords.size)).random()
         currentWord = listOfWords[currentWordNumber]
@@ -40,7 +43,7 @@ class GameViewHolder : ViewModel() {
         return words
     }
 
-    // Hide the letters so the player can't see the word.
+    // Hide the letters so the player can't see the word. And make space in the word without *.
     fun hideLetters(): MutableList<String> {
         var hideCurrentWordList = ""
         for (i in 0..currentWordList.size - 1) {
@@ -59,10 +62,10 @@ class GameViewHolder : ViewModel() {
         //adds "" because spaces can not be gussed
         if ((" ") in currentWordList) guessedCorrectLetters.add(" ")
 
-
-        //check if the letter is right
+        // Check if the letter is right
         if (letter in currentWordList) {
             guessedCorrectLetters.add(letter)
+            points(field)
             println(guessedCorrectLetters)
         } else wrongGuess()
     }
@@ -79,7 +82,7 @@ class GameViewHolder : ViewModel() {
     }
 
     // Sets the wheels actions.
-    fun WheelField(): String {
+    fun wheelField(): String {
         field = fieldsOnWheel.random()
 
         when (field) {
@@ -89,6 +92,16 @@ class GameViewHolder : ViewModel() {
             "MISTET LIV" -> {
                 wrongGuess()
             }
+            "FALLIT" -> {
+                fallit()
+            }
+
+        }
+        return field
+    }
+
+    fun points(randomField: String): Int{
+        when(randomField) {
             "500 POINT" -> {
                 _point += 500
             }
@@ -104,16 +117,13 @@ class GameViewHolder : ViewModel() {
             "2000 POINT" -> {
                 _point += 2000
             }
-            "FALLIT" -> {
-                fallit()
-            }
-
         }
-        return field
+        return _point
+
     }
 
 
-    // If fallit set life to 02
+    // If fallit set life to 0.
     fun fallit() {
         _life = 0
     }
@@ -132,6 +142,7 @@ class GameViewHolder : ViewModel() {
     }
 
     // Inspiraition from unit 3 unscramble app
+    // https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#11
     fun reintializeGame() {
         _point = 0
         _life = 5

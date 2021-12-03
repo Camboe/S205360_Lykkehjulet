@@ -8,6 +8,7 @@
     <string name="guessWord">Gæt Ord</string>
     <string name="guessLetter">Gæt Bogstav</string>
     <string name="endGame">SPILLET ER SLUT</string>
+    <string name="endFallit">DESVÆRRE DU TABTE!</string>
     <string name="your_point">"DINE POINT: %d"</string>
     <string name="exit">Exit</string>
     <string name="play_again">SPIL IGEN</string>
